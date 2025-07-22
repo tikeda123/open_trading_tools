@@ -151,6 +151,22 @@ The implementation provides three distinct Kalman filter approaches for price sm
 2. **Fixed-Q Kalman MA** - Traditional single-component filter with constant parameters
 3. **Enhanced Model 3** - Two-component system based on Benhamou (2016) research
 
+### Model 3 Improvements for Practical Trading
+
+Kalman MAモデルに改善を加えたモデル３を以下の論文をもとに、より現実的なトレードにおいて役立つように改良を加えました。
+
+**参考文献：TREND WITHOUT HICCUPS - A KALMAN FILTER APPROACH**
+
+https://arxiv.org/pdf/1808.03297
+
+#### Key Enhancements Made:
+
+1. **Two-Factor Structure**: Implementation of Benhamou's Model 3 with separate short-term and long-term components for better trend tracking
+2. **Price Normalization**: Added numerical stability through price scaling to initial value = 1
+3. **Dynamic ATR Integration**: Enhanced volatility adaptation using Average True Range
+4. **Optimized Parameters**: Tuned parameters specifically for cryptocurrency trading scenarios
+5. **Practical Trading Focus**: Balanced responsiveness vs. stability for real-world trading applications
+
 ## Mathematical Foundation
 
 ### Basic Kalman Filter Model
@@ -331,6 +347,25 @@ This implementation is provided for **educational and research purposes only**.
 ### Academic Citation
 Please cite Benhamou (2016) when using Model 3 concepts in academic work:
 - Benhamou, E. (2016). "Trend Without Hiccups – A Kalman Filter Approach"
+- Paper URL: https://arxiv.org/pdf/1808.03297
+
+#### Research Background
+
+This implementation builds upon Eric Benhamou's comprehensive research comparing different Kalman filter models for financial time series. The original paper evaluates four different models:
+
+- **Model 0**: Basic random walk (implemented as `kalman_ma`)
+- **Model 1**: Random walk with drift
+- **Model 2**: Mean reversion model
+- **Model 3**: Two-factor model (implemented as `kalman_ma_model3`)
+- **Model 4**: Model 3 + oscillator component
+
+Benhamou's research demonstrated that **Model 3 significantly outperformed** simpler approaches across multiple asset classes, providing:
+- Superior trend-following capabilities
+- Reduced lag compared to traditional moving averages
+- Better handling of market regime changes
+- Improved signal quality for trading applications
+
+Our implementation extends Model 3 with additional enhancements for cryptocurrency markets, including ATR-based dynamic adaptation and optimized parameters for high-frequency, volatile trading environments.
 
 ### Open Source
 This code is shared freely for the educational benefit of the community. Feel free to study, modify, and learn from it, but please use responsibly and ethically.
