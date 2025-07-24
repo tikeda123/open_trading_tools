@@ -147,9 +147,9 @@ def kalman_ma_model3(
 # DATA CHECK & PRE‑PROCESS
 # ────────────────────────────────────────────────────────────
 def load_dataset(
-    csv_path: str = "btc_kalman_ma_calc.csv",
+    csv_path: str = "BTCUSDT_240_market_data_tech.csv",
     time_col: str = "start_at",
-    resample_rule: str = "1h",
+    resample_rule: str = "4h",
 ) -> pd.DataFrame:
     """
     Minimal I/O helper that:
